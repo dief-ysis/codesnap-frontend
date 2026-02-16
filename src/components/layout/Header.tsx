@@ -19,6 +19,7 @@ export function Header() {
     ...(user
       ? [
           { href: "/dashboard", label: t("dashboard") },
+          { href: "/collections", label: t("collections") },
           { href: "/snippets/new", label: t("newSnippet") },
         ]
       : []),
