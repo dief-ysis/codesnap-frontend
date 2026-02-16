@@ -34,6 +34,9 @@ export default function DashboardPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // Guard against the auth hydration race condition: AuthProvider starts
+    // with isLoading=true while it fetches /auth/me. We must wait for that
+    // to finish before deciding whether to redirect or fetch snippets.
     if (authLoading) return;
     if (!user) {
       router.push("/auth/login");
@@ -53,6 +56,8 @@ export default function DashboardPage() {
     load();
   }, [user, authLoading, router]);
 
+  // Dual loading state: `authLoading` = waiting for AuthProvider hydration,
+  // `isLoading` = waiting for the snippets API call. Both must complete.
   if (authLoading || isLoading) {
     return (
       <div className="flex items-center justify-center py-20">

@@ -62,6 +62,8 @@ export default function CollectionDetailPage() {
   const handleRemoveSnippet = async (snippetId: string) => {
     try {
       await api.delete(`/collections/${collectionId}/snippets/${snippetId}`);
+      // Optimistic-style local state update: remove the snippet from the UI
+      // immediately after the API confirms deletion, avoiding a full re-fetch.
       setCollection((prev) =>
         prev
           ? { ...prev, snippets: prev.snippets.filter((s) => s.id !== snippetId) }

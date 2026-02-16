@@ -12,6 +12,9 @@ export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
 
+  // Prevent SSR hydration mismatch: during server rendering `theme` is undefined,
+  // so we render a fixed-size placeholder until the client mounts and knows the
+  // actual theme. Without this, React would warn about mismatched server/client HTML.
   useEffect(() => setMounted(true), []);
 
   if (!mounted) {

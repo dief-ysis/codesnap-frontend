@@ -48,6 +48,8 @@ async function request<T = any>(
 
   const headers: HeadersInit = {
     "Content-Type": "application/json",
+    // Conditionally inject the Bearer token using spread — avoids sending
+    // an empty Authorization header when the user is not authenticated.
     ...(token ? { Authorization: `Bearer ${token}` } : {}),
     ...options.headers,
   };
@@ -58,6 +60,8 @@ async function request<T = any>(
   });
 
   if (!res.ok) {
+    // Attempt to parse the error body as JSON; fall back to an empty object
+    // for non-JSON error responses (e.g. plain-text 502 from a reverse proxy).
     const body = await res.json().catch(() => ({}));
     throw new ApiError(
       body.message || `Request failed with status ${res.status}`,
@@ -66,6 +70,8 @@ async function request<T = any>(
     );
   }
 
+  // 204 No Content has no body to parse — synthesise a success envelope
+  // so callers can handle all responses uniformly without special-casing.
   if (res.status === 204) {
     return { status: "success", data: {} as T };
   }

@@ -50,6 +50,8 @@ export default function SnippetDetailPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   const snippetId = params.id as string;
+  // Derive ownership by comparing the authenticated user's ID with the snippet
+  // author's ID — controls conditional rendering of edit/delete buttons below.
   const isOwner = user?.id === snippet?.userId;
 
   useEffect(() => {
@@ -86,6 +88,8 @@ export default function SnippetDetailPage() {
   };
 
   const handleShare = () => {
+    // Build the share URL using the public shareSlug (not the internal UUID)
+    // so shared links remain stable even if the snippet ID format changes.
     const url = `${window.location.origin}/s/${snippet?.shareSlug}`;
     copy(url);
   };

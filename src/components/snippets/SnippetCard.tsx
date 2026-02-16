@@ -26,6 +26,8 @@ interface Snippet {
 export function SnippetCard({ snippet }: { snippet: Snippet }) {
   const t = useTranslations("common");
   const { copied, copy } = useClipboard();
+  // Truncate code preview to the first 5 lines — shows enough to identify the
+  // snippet at a glance without overwhelming the card layout on small screens.
   const preview = snippet.code.split("\n").slice(0, 5).join("\n");
 
   return (

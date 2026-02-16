@@ -41,6 +41,8 @@ export default function NewSnippetPage() {
         code,
         language,
         visibility,
+        // Split comma-separated input into an array, trim whitespace from each tag,
+        // and filter out empty strings (e.g. trailing commas like "react, hooks,")
         tags: tags
           ? tags.split(",").map((t) => t.trim()).filter(Boolean)
           : undefined,

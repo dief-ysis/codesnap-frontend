@@ -35,6 +35,8 @@ export default function ExplorePage() {
   const fetchSnippets = useCallback(async () => {
     setIsLoading(true);
     try {
+      // Dynamically switch between the public listing endpoint and the
+      // full-text search endpoint based on whether the user has typed a query.
       let endpoint = "/snippets/public?limit=30";
       if (query) {
         endpoint = `/snippets/search?q=${encodeURIComponent(query)}&limit=30`;
@@ -51,6 +53,9 @@ export default function ExplorePage() {
     }
   }, [query, language]);
 
+  // Debounce API calls by 300ms: each keystroke resets the timer via cleanup,
+  // so the request only fires after the user stops typing. This prevents
+  // flooding the search endpoint with a request per character.
   useEffect(() => {
     const timer = setTimeout(fetchSnippets, 300);
     return () => clearTimeout(timer);
