@@ -4,6 +4,44 @@
     "error": "Something went wrong",
     "save": "Save",
     "cancel": "Cancel",
-    "back": "Back"
+    "back": "Back",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "search": "Search",
+    "noResults": "No results",
+    "copyCode": "Copy code",
+    "copied": "Copied!"
+  },
+  "nav": {
+    "explore": "Explore",
+    "dashboard": "Dashboard",
+    "newSnippet": "New Snippet",
+    "login": "Sign in",
+    "register": "Sign up",
+    "logout": "Sign out"
+  },
+  "footer": {
+    "copyright": "© {year} CodeSnap. All rights reserved."
+  },
+  "auth": {
+    "loginTitle": "Sign in",
+    "registerTitle": "Create account",
+    "email": "Email",
+    "username": "Username",
+    "password": "Password",
+    "displayName": "Display name",
+    "loginButton": "Sign in",
+    "registerButton": "Create account",
+    "noAccount": "Don't have an account?",
+    "hasAccount": "Already have an account?",
+    "signUpLink": "Sign up",
+    "signInLink": "Sign in"
+  },
+  "home": {
+    "title": "Share code with style",
+    "subtitle": "Save, organize, and share code snippets with syntax highlighting, tags, and search.",
+    "cta": "Get started",
+    "exploreCta": "Explore snippets"
   }
 }

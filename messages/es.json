@@ -4,6 +4,44 @@
     "error": "Algo salio mal",
     "save": "Guardar",
     "cancel": "Cancelar",
-    "back": "Volver"
+    "back": "Volver",
+    "delete": "Eliminar",
+    "edit": "Editar",
+    "create": "Crear",
+    "search": "Buscar",
+    "noResults": "Sin resultados",
+    "copyCode": "Copiar codigo",
+    "copied": "Copiado!"
+  },
+  "nav": {
+    "explore": "Explorar",
+    "dashboard": "Dashboard",
+    "newSnippet": "Nuevo Snippet",
+    "login": "Iniciar sesion",
+    "register": "Registrarse",
+    "logout": "Cerrar sesion"
+  },
+  "footer": {
+    "copyright": "© {year} CodeSnap. Todos los derechos reservados."
+  },
+  "auth": {
+    "loginTitle": "Iniciar sesion",
+    "registerTitle": "Crear cuenta",
+    "email": "Correo electronico",
+    "username": "Nombre de usuario",
+    "password": "Contrasena",
+    "displayName": "Nombre para mostrar",
+    "loginButton": "Iniciar sesion",
+    "registerButton": "Crear cuenta",
+    "noAccount": "No tienes cuenta?",
+    "hasAccount": "Ya tienes cuenta?",
+    "signUpLink": "Registrate",
+    "signInLink": "Inicia sesion"
+  },
+  "home": {
+    "title": "Comparte codigo con estilo",
+    "subtitle": "Guarda, organiza y comparte snippets de codigo con syntax highlighting, tags y busqueda.",
+    "cta": "Comenzar",
+    "exploreCta": "Explorar snippets"
   }
 }
