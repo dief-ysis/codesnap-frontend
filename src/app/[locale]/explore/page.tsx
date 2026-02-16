@@ -21,6 +21,10 @@ interface Snippet {
   createdAt: string;
 }
 
+/**
+ * Public snippet exploration page with debounced full-text search and
+ * language filtering. Switches between public listing and search endpoints.
+ */
 export default function ExplorePage() {
   const t = useTranslations("common");
   const [snippets, setSnippets] = useState<Snippet[]>([]);

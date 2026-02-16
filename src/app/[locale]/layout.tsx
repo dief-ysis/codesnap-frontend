@@ -39,6 +39,10 @@ export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
 }
 
+/**
+ * Root locale layout. Validates the locale, sets up providers (Theme, i18n,
+ * Auth, Motion), and renders the persistent Header/Footer chrome.
+ */
 export default async function LocaleLayout({ children, params }: Props) {
   const { locale } = await params;
   if (!hasLocale(routing.locales, locale)) {

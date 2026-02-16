@@ -10,6 +10,7 @@ import { Input } from "@/components/ui/Input";
 import { CodeEditor } from "@/components/editor/CodeEditor";
 import { LanguageSelect } from "@/components/editor/LanguageSelect";
 
+/** Snippet creation form with code editor, language/visibility selectors, and comma-separated tags. */
 export default function NewSnippetPage() {
   const t = useTranslations("common");
   const router = useRouter();

@@ -35,6 +35,10 @@ interface Snippet {
   createdAt: string;
 }
 
+/**
+ * Snippet detail page with full code view, copy, share, fork, and delete actions.
+ * Owner-specific controls are conditionally rendered based on auth state.
+ */
 export default function SnippetDetailPage() {
   const t = useTranslations("common");
   const params = useParams();

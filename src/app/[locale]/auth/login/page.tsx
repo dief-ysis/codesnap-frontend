@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Code2 } from "lucide-react";
 
+/** Login page with email/password form. Redirects to dashboard on success. */
 export default function LoginPage() {
   const t = useTranslations("auth");
   const router = useRouter();

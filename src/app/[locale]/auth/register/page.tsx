@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/Button";
 import { Input } from "@/components/ui/Input";
 import { Code2 } from "lucide-react";
 
+/** Registration page with email, username, password, and optional display name. */
 export default function RegisterPage() {
   const t = useTranslations("auth");
   const router = useRouter();
