@@ -46,6 +46,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const [isLoading, setIsLoading] = useState(true);
 
   const fetchUser = useCallback(async () => {
+    // Skip the API call entirely if there's no stored token — avoids an
+    // unnecessary 401 request and immediately marks auth hydration as done.
     const token = getToken();
     if (!token) {
       setIsLoading(false);
@@ -56,6 +58,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       const res = await api.get("/auth/me");
       setUser(res.data.user);
     } catch {
+      // Token is expired or invalid — clean it up so future page loads
+      // don't attempt the same failed request
       removeToken();
     } finally {
       setIsLoading(false);
@@ -68,6 +72,8 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const login = async (email: string, password: string) => {
     const res = await api.post("/auth/login", { email, password });
+    // Store the token first so that any subsequent API calls (e.g. from
+    // components that re-render after setUser) already have it available.
     setToken(res.data.token);
     setUser(res.data.user);
   };

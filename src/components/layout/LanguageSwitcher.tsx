@@ -17,6 +17,9 @@ export function LanguageSwitcher() {
 
   const toggleLocale = () => {
     const next = locale === "es" ? "en" : "es";
+    // Wrap in startTransition so the locale switch happens as a non-blocking
+    // transition — the current UI stays interactive while Next.js prepares
+    // the new locale's page in the background.
     startTransition(() => {
       router.replace(pathname, { locale: next });
     });
