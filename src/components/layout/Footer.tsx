@@ -3,6 +3,9 @@
 import { useTranslations } from "next-intl";
 import { Code2 } from "lucide-react";
 
+/**
+ * Site-wide footer displaying the CodeSnap brand and a dynamic copyright year.
+ */
 export function Footer() {
   const t = useTranslations("footer");
 

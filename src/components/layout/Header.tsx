@@ -8,6 +8,11 @@ import { ThemeToggle } from "@/components/ui/ThemeToggle";
 import { LanguageSwitcher } from "@/components/layout/LanguageSwitcher";
 import { Code2, Menu, X, LogOut } from "lucide-react";
 
+/**
+ * Application header with responsive navigation. Shows public links for all
+ * visitors and authenticated-only links (Dashboard, Collections, New Snippet)
+ * when logged in. Includes theme toggle, language switcher, and mobile menu.
+ */
 export function Header() {
   const t = useTranslations("nav");
   const pathname = usePathname();

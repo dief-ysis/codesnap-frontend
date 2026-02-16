@@ -2,6 +2,7 @@
 
 import { cn } from "@/lib/utils";
 
+/** Props for the {@link CodeEditor} component. */
 interface CodeEditorProps {
   value: string;
   onChange: (value: string) => void;
@@ -9,6 +10,10 @@ interface CodeEditorProps {
   placeholder?: string;
 }
 
+/**
+ * Plain-text code editor built on a styled `<textarea>`. Displays a header
+ * bar with the language label and a live line count.
+ */
 export function CodeEditor({
   value,
   onChange,

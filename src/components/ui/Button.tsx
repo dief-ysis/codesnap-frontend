@@ -1,6 +1,10 @@
 import { cn } from "@/lib/utils";
 import type { ButtonHTMLAttributes } from "react";
 
+/**
+ * Props for the {@link Button} component, extending native button attributes
+ * with design-system variants and sizes.
+ */
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "ghost" | "danger";
   size?: "sm" | "md" | "lg";
@@ -19,6 +23,10 @@ const sizes = {
   lg: "px-6 py-3 text-base",
 };
 
+/**
+ * Reusable button component with variant and size presets.
+ * Supports `primary`, `secondary`, `ghost`, and `danger` variants.
+ */
 export function Button({
   variant = "primary",
   size = "md",

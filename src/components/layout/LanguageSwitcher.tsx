@@ -5,6 +5,10 @@ import { useRouter, usePathname } from "@/i18n/navigation";
 import { useTransition } from "react";
 import { Languages } from "lucide-react";
 
+/**
+ * Button that toggles the active locale between Spanish and English.
+ * Uses `useTransition` to perform the route replacement without blocking the UI.
+ */
 export function LanguageSwitcher() {
   const locale = useLocale();
   const router = useRouter();
