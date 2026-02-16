@@ -17,6 +17,7 @@ interface Collection {
   snippets: any[];
 }
 
+/** Collection detail page showing contained snippets with per-snippet removal. */
 export default function CollectionDetailPage() {
   const t = useTranslations("common");
   const params = useParams();

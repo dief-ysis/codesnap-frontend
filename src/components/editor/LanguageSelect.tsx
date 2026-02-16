@@ -1,5 +1,6 @@
 "use client";
 
+/** Exhaustive list of programming languages available in the language selector. */
 const LANGUAGES = [
   "javascript", "typescript", "python", "java", "c", "cpp", "csharp",
   "go", "rust", "ruby", "php", "swift", "kotlin", "dart", "scala",
@@ -7,11 +8,15 @@ const LANGUAGES = [
   "markdown", "bash", "powershell", "dockerfile", "plaintext",
 ];
 
+/** Props for the {@link LanguageSelect} component. */
 interface LanguageSelectProps {
   value: string;
   onChange: (value: string) => void;
 }
 
+/**
+ * Dropdown selector for choosing a programming language from the supported list.
+ */
 export function LanguageSelect({ value, onChange }: LanguageSelectProps) {
   return (
     <select

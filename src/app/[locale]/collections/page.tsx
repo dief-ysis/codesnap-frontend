@@ -17,6 +17,7 @@ interface Collection {
   createdAt: string;
 }
 
+/** Collections list page with inline creation form. Requires authentication. */
 export default function CollectionsPage() {
   const t = useTranslations("common");
   const router = useRouter();

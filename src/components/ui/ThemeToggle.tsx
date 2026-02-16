@@ -4,6 +4,10 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 import { Sun, Moon } from "lucide-react";
 
+/**
+ * Toggle button that switches between dark and light themes.
+ * Renders a placeholder during SSR to prevent hydration mismatches.
+ */
 export function ThemeToggle() {
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);

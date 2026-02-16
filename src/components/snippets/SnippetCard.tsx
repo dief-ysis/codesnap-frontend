@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import { useClipboard } from "@/hooks/useClipboard";
 import { Code2, Copy, Check, GitFork } from "lucide-react";
 
+/** Shape of a snippet as returned by the public listing and search endpoints. */
 interface Snippet {
   id: string;
   title: string;
@@ -18,6 +19,10 @@ interface Snippet {
   createdAt: string;
 }
 
+/**
+ * Compact card displaying a snippet preview with title, 5-line code preview,
+ * language badge, fork count, tags (max 3), and a copy-to-clipboard button.
+ */
 export function SnippetCard({ snippet }: { snippet: Snippet }) {
   const t = useTranslations("common");
   const { copied, copy } = useClipboard();

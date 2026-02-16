@@ -1,11 +1,19 @@
 import { cn } from "@/lib/utils";
 import { forwardRef, type InputHTMLAttributes } from "react";
 
+/**
+ * Props for the {@link Input} component, extending native input attributes
+ * with an optional label and error message.
+ */
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   error?: string;
 }
 
+/**
+ * Styled text input with optional label and inline validation error display.
+ * Forwards a ref to the underlying `<input>` element.
+ */
 export const Input = forwardRef<HTMLInputElement, InputProps>(
   ({ label, error, className, id, ...props }, ref) => {
     return (

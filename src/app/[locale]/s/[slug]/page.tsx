@@ -20,6 +20,7 @@ interface Snippet {
   createdAt: string;
 }
 
+/** Read-only public page for viewing a snippet via its unique share slug URL. */
 export default function SharedSnippetPage() {
   const t = useTranslations("common");
   const params = useParams();

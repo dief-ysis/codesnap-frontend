@@ -11,6 +11,7 @@ import {
 import { getToken, setToken, removeToken } from "@/lib/auth";
 import { api } from "@/lib/api";
 
+/** Authenticated user profile returned by the `/auth/me` endpoint. */
 interface User {
   id: string;
   email: string;
@@ -20,6 +21,7 @@ interface User {
   bio: string | null;
 }
 
+/** Shape of the authentication context exposed to consumers via {@link useAuth}. */
 interface AuthContextType {
   user: User | null;
   isLoading: boolean;
@@ -35,6 +37,10 @@ interface AuthContextType {
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
+/**
+ * Provides authentication state and actions (login, register, logout) to the
+ * component tree. On mount it attempts to hydrate the user from a stored JWT.
+ */
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -89,6 +95,12 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   );
 }
 
+/**
+ * Hook to access the current authentication state and actions.
+ *
+ * @throws {Error} If used outside of an {@link AuthProvider}
+ * @returns The {@link AuthContextType} with user data and auth methods
+ */
 export function useAuth() {
   const context = useContext(AuthContext);
   if (!context) {

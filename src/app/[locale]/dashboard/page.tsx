@@ -22,6 +22,10 @@ interface Snippet {
   createdAt: string;
 }
 
+/**
+ * Authenticated user dashboard displaying owned snippets. Redirects
+ * unauthenticated visitors to the login page after auth hydration.
+ */
 export default function DashboardPage() {
   const t = useTranslations("common");
   const router = useRouter();
